@@ -1,0 +1,40 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.img-fluid {
+    margin-bottom: 40px;
+}
+
+.confir-block-descrip {
+    margin-top: 20px;
+}
+
+.icono-check {
+    font-size: 200px;
+    color: #32b751;
+    line-height: 0.8;
+}
+
+.icono-exclamation {
+    font-size: 200px;
+    color: #ff9c07;
+    line-height: 0.8;
+}
+
+.icono-x {
+    font-size: 200px;
+    color: #ff4c4c;
+    line-height: 0.8;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
