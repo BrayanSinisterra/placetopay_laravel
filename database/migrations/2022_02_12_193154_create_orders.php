@@ -22,8 +22,8 @@ class CreateOrders extends Migration
             $table->text('product_description', 120);
             $table->string('currency', 10);
             $table->bigInteger('total');
-            $table->integer('requestId')->nullable();;
-            $table->string('status', 20);
+            $table->integer('requestId')->nullable();
+            $table->string('status', 20)->nullable();
             $table->timestamps();
         });
     }

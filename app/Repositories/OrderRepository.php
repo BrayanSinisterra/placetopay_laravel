@@ -11,4 +11,5 @@ namespace App\Repositories;
 interface OrderRepository
 {
     public function orderAll();
+    public function create($request);
 }

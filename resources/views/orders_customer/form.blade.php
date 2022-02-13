@@ -5,7 +5,17 @@
 
     <div class="col-md-12 order-md-1">
         <h4 class="mb-3">Formulario</h4>
-        <form class="needs-validation" novalidate action="src/controller/PlacetopayController.php" method="post">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <form class="needs-validation" action="{{ route('order.store') }}" method="POST">
+            @csrf
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <label for="firstName">Nombre</label>
@@ -69,7 +79,7 @@
             <hr class="mb-4">
             <div class="row">
                 <div class="col-md-6">
-                    <button class="btn btn-outline-primary btn-lg btn-block">Volver</button>
+                    <a class="btn btn-outline-primary btn-lg btn-block" href="{{route('order.index')}}">Volver</a>
                 </div>
                 <div class="col-md-6">
                     <button class="btn btn-outline-success btn-lg btn-block" type="submit">Generar orden</button>

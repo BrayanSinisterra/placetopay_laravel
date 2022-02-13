@@ -30,4 +30,15 @@ class EloquentOrder implements OrderRepository
     {
         return $this->model->all();
     }
+
+    /**
+     * Crear una nueva orden
+     *
+     * @param object $request
+     * @return App\Models\Orders $model
+     */
+    public function create($request)
+    {
+        return $this->model->create($request->all());
+    }
 }
