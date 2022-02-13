@@ -19,9 +19,9 @@
                     <th scope="col">Nombre solicitante</th>
                     <th scope="col">Correo solicitante</th>
                     <th scope="col">Télefono solicitante</th>
-                    <th scope="col">Referencia del producto</th>
+                    <th scope="col">Referencia producto</th>
                     <th scope="col">Total</th>
-                    <th scope="col">Fecha de transacción</th>
+                    <th scope="col">Fecha transacción</th>
                     <th scope="col">Estado</th>
                 </tr>
             </thead>

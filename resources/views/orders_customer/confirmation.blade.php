@@ -12,15 +12,15 @@
                    </div>
                    <div class="col-md-4">
                         <h6 class="card-title">Nombre</h6>
-                        <h6 class="card-subtitle mb-2 text-muted">Brayan Sinisterra</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{$order->customer_name}}</h6>
                    </div>
                    <div class="col-md-4">
                         <h6 class="card-title">Email</h6>
-                        <h6 class="card-subtitle mb-2 text-muted">brayan@gmail.com</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{$order->customer_email}}</h6>
                    </div>
                    <div class="col-md-4">
                         <h6 class="card-title">Número de télefono</h6>
-                        <h6 class="card-subtitle mb-2 text-muted">3145662712</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{$order->customer_mobile}}</h6>
                    </div>
                </div>
                <hr class="mb-4">
@@ -30,20 +30,20 @@
                    </div>
                    <div class="col-md-4">
                         <h6 class="card-title">Referencia</h6>
-                        <h6 class="card-subtitle mb-2 text-muted">Brayan Sinisterra</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{$order->reference}}</h6>
                    </div>
                    <div class="col-md-4">
                         <h6 class="card-title">MONEDA</h6>
-                        <h6 class="card-subtitle mb-2 text-muted">COP</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{$order->currency}}</h6>
                    </div>
 
                    <div class="col-md-4">
                         <h6 class="card-title">TOTAL</h6>
-                        <h6 class="card-subtitle mb-2 text-muted">$000</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">${{number_format($order->total)}}</h6>
                    </div>
                    <div class="col-md-12 confir-block-descrip">
                         <h6 class="card-title">Descrición del producto</h6>
-                        <h6 class="card-subtitle mb-2 text-muted">brayan@gmail.com</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{$order->product_description}}</h6>
                    </div>
                 </div>
                 <hr class="mb-4">
