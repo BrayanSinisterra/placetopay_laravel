@@ -5,6 +5,11 @@ use Http;
 
 class Funciones
 {
+    /**
+     *  Identifica la ip del cliente conectado
+     *
+     * @return string ipaddress
+     */
     public static function ip_cliente()
     {
         $ipaddress = '';
@@ -28,17 +33,29 @@ class Funciones
 
         return $ipaddress;
     }
-
+    /**
+     *  Extrae fecha del sistema con formato ISO 8601
+     *
+     * @return string date
+     */
     public static function seed()
     {
         return date('c');
     }
-
+    /**
+     *  Extrae fecha del sistema con formato ISO 8601 y suma un tiempo
+     *
+     * @return string date
+     */
     public static function expiration()
     {
         return date('c', strtotime('+' . env('time')));
     }
-
+    /**
+     *  Genear un valor aleatorio
+     *
+     * @return string nonce
+     */
     public static function nonce()
     {
         if (function_exists('random_bytes')) {
@@ -50,10 +67,24 @@ class Funciones
         }
         return $nonce;
     }
-
+    /**
+     * Permite el consumo de servicio POST sin autenticación por HTTP
+     *
+     * @return string json
+     */
     public function post($base, $route, $data)
     {
         return json_decode((Http::post($base . $route, $data))->body());
+    }
+
+    /**
+     * Permite el consumo de servicio GET con un cuerpo de datos
+     *
+     * @return string json
+     */
+    public function get($base, $route, $data)
+    {
+        return json_decode((Http::get($base . $route, $data))->body());
     }
 
 }

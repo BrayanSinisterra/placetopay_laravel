@@ -11,4 +11,5 @@ namespace App\Repositories\Api;
 interface ApiRepository
 {
     public function payload($id);
+    public function information($id);
 }

@@ -23,6 +23,7 @@
                     <th scope="col">Total</th>
                     <th scope="col">Fecha transacción</th>
                     <th scope="col">Estado</th>
+                    <th scope="col">Resumen transacción</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,6 +37,7 @@
                         <td>${{number_format($order->total)}}</td>
                         <td>{{$order->created_at}}</td>
                         <td>{{$order->status}}</td>
+                        <td><a class="btn btn-outline-primary" href="{{url('show',base64_encode($order->id))}}">VER</a></td>
                     </tr>
                 @endforeach
 

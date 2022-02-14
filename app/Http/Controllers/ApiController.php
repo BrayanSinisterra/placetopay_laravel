@@ -36,4 +36,16 @@ class ApiController extends Controller
         return Redirect::to($this->api->payload($id));
     }
 
+    /**
+     * Consulta una sesión ya creada
+     *
+     * @var int $id
+     * @return url
+     */
+
+    public function show($id)
+    {
+        return view('orders_customer.show')->with('order', $this->api->information(base64_decode($id)));
+    }
+
 }

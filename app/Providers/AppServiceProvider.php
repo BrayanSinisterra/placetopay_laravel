@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\Api\ApiPlacetopay;
 use App\Repositories\Api\ApiRepository;
-use App\Repositories\Api\CreateRequest;
 use App\Repositories\EloquentOrder;
 use App\Repositories\OrderRepository;
 use Illuminate\Support\ServiceProvider;
@@ -18,8 +18,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(OrderRepository::class, EloquentOrder::class);
-        $this->app->singleton(ApiRepository::class, CreateRequest::class);
-        // $this->app->singleton(ApiRepository::class, getRequestInformation::class);
+        $this->app->singleton(ApiRepository::class, ApiPlacetopay::class);
     }
 
     /**

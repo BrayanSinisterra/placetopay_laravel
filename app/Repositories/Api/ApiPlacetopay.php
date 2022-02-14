@@ -5,7 +5,7 @@ namespace App\Repositories\Api;
 use App\Helpers\Funciones;
 use App\Models\Orders;
 
-class CreateRequest implements ApiRepository
+class ApiPlacetopay implements ApiRepository
 {
     /**
      * @var $model
@@ -23,7 +23,7 @@ class CreateRequest implements ApiRepository
     }
 
     /**
-     * Consume servicio de placetopay CreateRequest.
+     * Consume servicio de placetopay ApiPlacetopay.
      *
      * @return int id
      */
@@ -73,11 +73,44 @@ class CreateRequest implements ApiRepository
         } else {
             $model_order->status = $result->status->status;
             $response = url('/') . "/error";
+            \Log::error($result->status->status . $result->status->message . ' ORDER ID: ' . $id);
         }
         $model_order->date = $result->status->date;
         $model_order->message = $result->status->message;
         $model_order->save();
         return $response;
+    }
+
+    /**
+     * Consume servicio de placetopay ApiPlacetopay.
+     *
+     * @return int id
+     */
+
+    public function information($id)
+    {
+        $nonce = Funciones::nonce();
+        $seed = Funciones::seed();
+        $model_order = $this->model->find($id);
+        $auth = array(
+            'login' => env('LOGIN'),
+            'tranKey' => base64_encode(sha1($nonce . $seed . env('TRANKEY'), true)),
+            'nonce' => base64_encode($nonce),
+            'seed' => $seed,
+        );
+
+        $data = array(
+            "auth" => $auth,
+        );
+
+        $result = Funciones::post(env('URL_EVERTEC'), 'redirection/api/session/' . $model_order->requestId, $data);
+
+        if (isset($result)) {
+            $model_order->status = $result->status->status;
+            $model_order->message = $result->status->message;
+            $model_order->save();
+        }
+        return $model_order;
     }
 
 }

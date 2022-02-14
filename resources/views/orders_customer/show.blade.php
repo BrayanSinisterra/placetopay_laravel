@@ -9,21 +9,29 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                             <h5 class="mb-3">Estado de la compra</h5>
+                            @if($order->status == 'REJECTED')
+                                <i class="bi bi-clock icono-x"></i>
+                            @elseif($order->status == 'CREATED')
+                                <i class="bi bi-exclamation-circle icono-exclamation"></i>
+                            @elseif($order->status == 'FAILED')
                             <i class="bi bi-x-circle icono-x"></i>
+                            @elseif($order->status == 'APPROVED')
+                                <i class="bi bi-check-circle icono-check"></i>
+                            @endif
 
                     </div>
                     <div class="col-md-12 text-center confir-block-descrip">
 
-                        <h6 class="card-title"><b>Estado:</b> La petición ha sido aprobada exitosamente</h6>
+                        <h6 class="card-title"><b>Estado:</b> {{$order->message}}</h6>
                     </div>
                     <div class="col-md-12 text-center">
-                        <h6 class="card-title"><b>Referencia:</b> 1122334455</h6>
+                        <h6 class="card-title"><b>Referencia:</b> {{$order->reference}}</h6>
                     </div>
                     <div class="col-md-12 text-center">
-                        <h6 class="card-title"><b>Valor:</b> COP 2000</h6>
+                        <h6 class="card-title"><b>Valor:</b> {{$order->currency}} ${{number_format($order->total)}}</h6>
                     </div>
                     <div class="col-md-12 text-center">
-                        <h6 class="card-title"><b>Fecha transacción:</b> 2021-11-30T15:49:47-05:00</h6>
+                        <h6 class="card-title"><b>Fecha transacción:</b> {{$order->created_at}}</h6>
                     </div>
 
                 </div>
@@ -31,11 +39,13 @@
                 <hr class="mb-4">
                 <div class="row">
                     <div class="col-md-6">
-                        <button class="btn btn-outline-primary btn-lg btn-block" type="button">Ver ordenes realizadas</button>
+                        <a class="btn btn-outline-primary btn-lg btn-block"  href="{{route('order.index')}}">Ver ordenes realizadas</a>
                     </div>
-                    <div class="col-md-6">
-                        <button class="btn btn-outline-success btn-lg btn-block" type="button">Volver a intentar la compra</button>
-                    </div>
+                    @if($order->status != 'APPROVED')
+                        <div class="col-md-6">
+                            <a class="btn btn-outline-success btn-lg btn-block" href="{{url('placetopay',$order->id)}}">Volver a intentar la compra</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
