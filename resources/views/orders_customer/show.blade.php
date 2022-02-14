@@ -9,12 +9,10 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                             <h5 class="mb-3">Estado de la compra</h5>
-                            @if($order->status == 'REJECTED')
-                                <i class="bi bi-clock icono-x"></i>
-                            @elseif($order->status == 'CREATED')
+                            @if($order->status == 'FAILED' or $order->status == 'REJECTED')
+                                <i class="bi bi-x-circle icono-x"></i>
+                            @elseif($order->status == 'CREATED' or $order->status == 'PENDING')
                                 <i class="bi bi-exclamation-circle icono-exclamation"></i>
-                            @elseif($order->status == 'FAILED')
-                            <i class="bi bi-x-circle icono-x"></i>
                             @elseif($order->status == 'APPROVED')
                                 <i class="bi bi-check-circle icono-check"></i>
                             @endif
