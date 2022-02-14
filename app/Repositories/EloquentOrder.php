@@ -39,6 +39,6 @@ class EloquentOrder implements OrderRepository
      */
     public function create($request)
     {
-        return $this->model->create($request->all());
+        return $this->model->create($request);
     }
 }

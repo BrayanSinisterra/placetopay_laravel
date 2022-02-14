@@ -53,19 +53,7 @@ class OrderController extends Controller
      */
     public function store(OrderRequest $request)
     {
-        return view('orders_customer.confirmation')->with('order', $this->order->create($request));
-    }
-
-    /**
-     * Crer sesion con servicio Placetopay
-     *
-     * @var int $id
-     * @return url
-     */
-
-    public function placetopay($id)
-    {
-        return $this->order->payload($id);
+        return view('orders_customer.confirmation')->with('order', $this->order->create($request->all()));
     }
 
 }

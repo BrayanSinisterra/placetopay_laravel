@@ -53,4 +53,7 @@ Se debe ejecutar los siguientes comandos para la debida instalación de la aplic
 
 ## Ejecución de pruebas unitarias
 
-
+1. Para la ejecución de las pruebas unitarias debemos ejecutar
+    ```
+    $ php artisan test 
+    ```
