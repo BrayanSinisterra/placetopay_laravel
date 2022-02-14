@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [OrderController::class, 'index']);
 Route::resource('order', OrderController::class);
+Route::get('placetopay/{id}', [ApiController::class, 'placetopay']);
+
+/*
+|--------------------------------------------------------------------------
+| Función de error
+|--------------------------------------------------------------------------
+| Sí uno de los servicios tiende a fallar envia un mensaje comercial
+ */
+Route::get('/error', function () {
+    return view('error');
+});

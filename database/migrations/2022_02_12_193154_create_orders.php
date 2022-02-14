@@ -24,6 +24,9 @@ class CreateOrders extends Migration
             $table->bigInteger('total');
             $table->integer('requestId')->nullable();
             $table->string('status', 20)->nullable();
+            $table->string('message', 80)->nullable();
+            $table->string('url_placetopay', 200)->nullable();
+            $table->string('date', 30)->nullable();
             $table->timestamps();
         });
     }

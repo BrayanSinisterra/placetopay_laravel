@@ -52,7 +52,7 @@
                         <a class="btn btn-outline-primary btn-lg btn-block" href="{{route('order.index')}}">Cancelar</a>
                     </div>
                     <div class="col-md-6">
-                        <button class="btn btn-outline-success btn-lg btn-block" type="button">Realizar pago</button>
+                        <a class="btn btn-outline-success btn-lg btn-block" href="{{url('placetopay',$order->id)}}">Realizar pago</a>
                     </div>
                 </div>
             </div>

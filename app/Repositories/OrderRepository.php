@@ -5,7 +5,7 @@ namespace App\Repositories;
 /**
  * Interface de Orders
  *
- * @package App\Http\Interfaces
+ * @package App\Repositories
  */
 
 interface OrderRepository
